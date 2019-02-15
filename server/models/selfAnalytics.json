@@ -1,0 +1,17 @@
+{
+  "name": "SelfAnalytics",
+  "plural": "selfa",
+  "strict": false,
+  "base": "PersistedModel",
+  "idInjection": true,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+  ],
+  "methods": {}
+}

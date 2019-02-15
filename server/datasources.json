@@ -1,0 +1,10 @@
+{
+  "mongodb": {
+    "host": "mongo",
+    "port": 27017,
+    "url": "",
+    "database": "athena",
+    "name": "mongodb",
+    "connector": "mongodb"
+  }
+}

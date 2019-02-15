@@ -1,0 +1,71 @@
+{
+  "_meta": {
+    "sources": [
+      "loopback/common/models",
+      "loopback/server/models",
+      "../common/models",
+      "./models"
+    ],
+    "mixins": [
+      "loopback/common/mixins",
+      "loopback/server/mixins",
+      "../node_modules/loopback-ds-timestamp-mixin",
+      "../common/mixins",
+      "./mixins"
+    ]
+  },
+  "user": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "promotion": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "AccessToken": {
+    "dataSource": "mongodb",
+    "public": false,
+    "relations": {
+      "user": {
+        "type": "belongsTo",
+        "model": "user",
+        "foreignKey": "userId"
+      }
+    }
+  },
+  "ACL": {
+    "dataSource": "mongodb",
+    "public": false
+  },
+  "RoleMapping": {
+    "dataSource": "mongodb",
+    "public": false,
+    "options": {
+      "strictObjectIDCoercion": true
+    },
+    "relations": {
+      "role": {
+        "type": "belongsTo",
+        "model": "role",
+        "foreignKey": "roleId"
+      },
+      "user": {
+        "type": "belongsTo",
+        "model": "user",
+        "foreignKey": "principalId"
+      }
+    }
+  },
+  "role": {
+    "dataSource": "mongodb",
+    "public": true
+  },
+  "Cat": {
+    "dataSource": "mongodb",
+    "public": false
+  },
+  "SelfAnalytics": {
+    "dataSource": "mongodb",
+    "public": true
+  }
+}

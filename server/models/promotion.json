@@ -1,0 +1,68 @@
+{
+  "name": "promotion",
+  "plural": "promotions",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": true,
+  "options": {
+  },
+  "properties": {
+    "bu_state": {
+      "type": "string",
+      "default": "Submited"
+    },
+    "it_state": {
+      "type": "string",
+      "default": "Pending Job"
+    }
+  },
+  "mixins": {
+      "TimeStamp" : true
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "$everyone",
+      "permission": "ALLOW"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "Administrator",
+      "permission": "ALLOW",
+      "property": "*"
+    },
+    {
+      "accessType": "*",
+      "principalType": "ROLE",
+      "principalId": "Business User",
+      "permission": "ALLOW",
+      "property": "*"
+    }
+  ],
+  "methods": {
+    "retryPromotion": {
+      "accepts": [
+        {"arg": "data", "type": "object","required": true,"http":{"source": "body"}}
+      ],
+      "returns": [
+       {
+         "arg": "result",
+         "type": "object",
+         "root": true,
+         "description": ""
+       }
+     ],
+      "description": "Retry Spark Job",
+      "http": [
+       {
+         "path": "/retry-promotion",
+         "verb": "post"
+       }
+     ]
+   }
+  }
+}
